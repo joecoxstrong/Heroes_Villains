@@ -1,4 +1,4 @@
-from unicodedata import name
+
 from django.db import models
 from django.forms import CharField
 from super_types.models import SuperTypes
@@ -11,7 +11,7 @@ class Super(models.Model):
     primary_ability = models.CharField(max_length=255)
     secondary_ability = models.CharField(max_length=255)
     catchphrase = models.CharField(max_length=255)
-    super_type = models.ForeignKey(SuperTypes, on_delete=models.CASCADE)
+    super_type = models.ForeignKey(SuperTypes, on_delete=models.CASCADE,default=None)
     
     def __str__(self) -> str:
         return self.name
