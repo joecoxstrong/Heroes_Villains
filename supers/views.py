@@ -1,3 +1,13 @@
-from django.shortcuts import render
+from .serializer import SuperSerializer
+from .models import Super
+from rest_framework import generics
 
-# Create your views here.
+
+class SuperList(generics.ListCreateAPIView):
+    queryset = Super.objects.all()
+    serializer_class = SuperSerializer
+
+
+class SuperDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Super.objects.all()
+    serializer_class = SuperSerializer

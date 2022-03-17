@@ -6,4 +6,5 @@ from django.forms import CharField
 class SuperTypes(models.Model):
     type = models.CharField(max_length=255, default='')
     
-    
+    def __str__(self) -> str:
+        return self.type
